@@ -8,8 +8,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
-dateNow = datetime.today().strftime('%d/%m/%Y %H:%M')
-
 load_dotenv()
 install()
 
@@ -48,7 +46,7 @@ async def keyboard(client, message):
 
 @app.on_message(filters.command('últimos'))
 async def last(client, message):
-    
+    dateNow = datetime.today().strftime('%d/%m/%Y %H:%M')
     # Extract and print all of the values
     rows = sheet.get_all_records()
     msg = 'Esses foram os 5 últimos registros da tabela em '+dateNow+'\n\n'
