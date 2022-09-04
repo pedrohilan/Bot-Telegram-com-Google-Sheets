@@ -45,7 +45,7 @@ async def keyboard(client, message):
     await message.reply('Escolha uma opção', reply_markup=teclado)
 
 @app.on_message(filters.command('últimos'))
-async def last(client, message):
+async def last(client, message): 
     dateNow = datetime.today().strftime('%d/%m/%Y %H:%M')
     # Extract and print all of the values
     rows = sheet.get_all_records()
@@ -54,7 +54,7 @@ async def last(client, message):
         msg += "**Adolescente/Jovem** : "+rows[-i]['Nome do(a) Adolescente/Jovem']+"\n** Enviado em:** "+rows[-i]['Carimbo de data/hora']+"\n\n"
     
     await message.reply(msg)
-
+ 
 @app.on_message(filters.command('nada'))
 async def nothing(client, message):
     await message.reply('nada por enquanto')
